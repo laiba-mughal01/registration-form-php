@@ -5,6 +5,13 @@ if(!isset($_SESSION['name']))
     header("Location: login.php");
     exit();
 }
+$name = $_SESSION['name'];
+$reverse = "";
+
+for($i = strlen($name)-1; $i >= 0; $i--)
+{
+    $reverse = $reverse . $name[$i];
+}
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +24,7 @@ if(!isset($_SESSION['name']))
 </head>
 <body>
     <div class="welcome-container">
-<h1>Welcome, <?php echo $_SESSION['name']; ?> </h1>
+<h1>Welcome, <?php echo $reverse; ?> </h1>
 <p>You have successfully logged in.</p>
 <a href= "logout.php" class="logout-btn">Logout</a>
 </div>
